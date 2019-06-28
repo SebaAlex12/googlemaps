@@ -2,8 +2,6 @@ import React, { Component, CSSProperties } from "react";
 import { Marker } from './MapInterfaces';
 
 interface IpropsMapMarker extends Marker {
-  id: number;
-  text: string;
   onRemoveMarkerHandler(id: number): void;
 }
 

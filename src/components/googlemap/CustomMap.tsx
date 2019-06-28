@@ -95,7 +95,9 @@ class CustomMap extends Component<IpropsCustomMap, IstateCustomMap> {
 
     return (
       <div>
-        <CustomMapForm addMarkerEventHandler={this.addMapMarker} />
+        <CustomMapForm
+          addMarkerEventHandler={this.addMapMarker}
+        />
         <h2 className="container">Localizations</h2>
         <div style={mapInlineStyles}>
           <GoogleMapReact

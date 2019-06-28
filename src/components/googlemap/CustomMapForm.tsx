@@ -1,6 +1,6 @@
 import React, { Component, FormEvent, CSSProperties } from "react";
 import { IpropsCustomMap } from './CustomMap';
-import { Marker } from './MapInterfaces';
+import { MarkerWithoutId } from './MapInterfaces';
 
 interface IstateCustomMapForm extends IpropsCustomMap {
 }
@@ -8,7 +8,7 @@ interface IstateCustomMapForm extends IpropsCustomMap {
 interface IpropsCustomMapForm {
   addMarkerEventHandler(
     event: FormEvent,
-    marker: Marker,
+    marker: MarkerWithoutId,
   ): void;
 }
 
