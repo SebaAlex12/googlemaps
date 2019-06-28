@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Change Env File
+```conf
+REACT_APP_GOOGLE_MAP_KEY=HERE_PUT_YOUR_GOOGLE_MAP_KEY
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

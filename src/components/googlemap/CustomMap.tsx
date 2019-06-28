@@ -4,6 +4,8 @@ import CustomMapForm from "./CustomMapForm";
 import MapMarker from "./MapMarker";
 import { Coordinates, Marker } from './MapInterfaces';
 
+const GOOGLE_MAP_KEY: string = process.env.REACT_APP_GOOGLE_MAP_KEY || '';
+
 export interface IpropsCustomMap extends Coordinates {
   text: string;
 }
@@ -102,7 +104,7 @@ class CustomMap extends Component<IpropsCustomMap, IstateCustomMap> {
         <div style={mapInlineStyles}>
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: "AIzaSyAl6Fg23N7K6UdHwgWVVf8DCsT8FUhQyh4"
+                key: GOOGLE_MAP_KEY,
             }}
             defaultCenter={settings.center}
             defaultZoom={settings.zoom}
