@@ -20,9 +20,9 @@ class CustomMapForm extends Component<
   constructor(props: IpropsCustomMapForm) {
     super(props);
     this.state = {
-      text: "",
-      lat: 0,
-      lng: 0
+      text: "localization info",
+      lat: 52,
+      lng: 20
     };
   }
   mapOnChangeHandler = (event: FormEvent<HTMLInputElement>): void => {

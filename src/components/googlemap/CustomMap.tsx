@@ -31,10 +31,10 @@ class CustomMap extends Component<IpropsCustomMap, IstateCustomMap> {
     this.state = {
       settings: {
         center: {
-          lat: 0,
-          lng: 0
+          lat: 52,
+          lng: 20
         },
-        zoom: 1
+        zoom: 6
       },
       markers: [{ id: 1, lat: props.lat, lng: props.lng, text: props.text }]
     };
