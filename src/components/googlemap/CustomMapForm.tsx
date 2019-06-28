@@ -1,9 +1,7 @@
 import React, { Component, FormEvent, CSSProperties } from "react";
+import { IpropsCustomMap } from './CustomMap';
 
-interface IstateCustomMapForm {
-  text: string;
-  lat: number;
-  lng: number;
+interface IstateCustomMapForm extends IpropsCustomMap {
 }
 
 interface IpropsCustomMapForm {

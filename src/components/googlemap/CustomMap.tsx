@@ -2,27 +2,17 @@ import React, { Component, FormEvent, CSSProperties } from "react";
 import GoogleMapReact from "google-map-react";
 import CustomMapForm from "./CustomMapForm";
 import MapMarker from "./MapMarker";
+import { Coordinates, Marker } from './MapInterfaces';
 
-interface IpropsCustomMap {
-  lat: number;
-  lng: number;
+export interface IpropsCustomMap extends Coordinates {
   text: string;
 }
-
 interface IstateCustomMap {
   settings: {
-    center: {
-      lat: number;
-      lng: number;
-    };
-    zoom: number;
-  };
-  markers: {
-    id: number;
-    lat: number;
-    lng: number;
-    text: string;
-  }[];
+    center: Coordinates,
+    zoom: number,
+  },
+  markers: Marker[],
 }
 
 class CustomMap extends Component<IpropsCustomMap, IstateCustomMap> {
