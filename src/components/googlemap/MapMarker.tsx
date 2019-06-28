@@ -9,6 +9,7 @@ interface IpropsMapMarker extends Marker {
 
 class MapMarker extends Component<IpropsMapMarker> {
   render() {
+    const { onRemoveMarkerHandler, text, id } = this.props;
     const markerInlineStyles: CSSProperties = {
       backgroundColor: "red",
       padding: "10px",
@@ -25,11 +26,11 @@ class MapMarker extends Component<IpropsMapMarker> {
         <div
           style={deleteButtonStyles}
           className="btn"
-          onClick={() => this.props.onRemoveMarkerHandler(this.props.id)}
+          onClick={() => onRemoveMarkerHandler(id)}
         >
           X
         </div>
-        {this.props.text}
+        {text}
       </div>
     );
   }
