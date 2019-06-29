@@ -2,12 +2,11 @@ import React, { Component, FormEvent, CSSProperties } from "react";
 import GoogleMapReact from "google-map-react";
 import CustomMapForm from "./CustomMapForm";
 import MapMarker from "./MapMarker";
-import { Coordinates, Marker } from './MapInterfaces';
+import { Coordinates, Marker, MarkerWithoutId } from './MapInterfaces';
 
 const GOOGLE_MAP_KEY: string = process.env.REACT_APP_GOOGLE_MAP_KEY || '';
 
-export interface IpropsCustomMap extends Coordinates {
-  text: string;
+export interface IpropsCustomMap extends MarkerWithoutId {
 }
 interface IstateCustomMap {
   settings: {
