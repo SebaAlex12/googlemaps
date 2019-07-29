@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Change Env File
+## Add and Change Env File - set google map key
 ```conf
 REACT_APP_GOOGLE_MAP_KEY=HERE_PUT_YOUR_GOOGLE_MAP_KEY
 ```
