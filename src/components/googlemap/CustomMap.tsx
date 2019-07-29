@@ -2,18 +2,17 @@ import React, { Component, FormEvent, CSSProperties } from "react";
 import GoogleMapReact from "google-map-react";
 import CustomMapForm from "./CustomMapForm";
 import MapMarker from "./MapMarker";
-import { Coordinates, Marker, MarkerWithoutId } from './MapInterfaces';
+import { Coordinates, Marker, MarkerWithoutId } from "./MapInterfaces";
 
-const GOOGLE_MAP_KEY: string = process.env.REACT_APP_GOOGLE_MAP_KEY || '';
+const GOOGLE_MAP_KEY: string = process.env.REACT_APP_GOOGLE_MAP_KEY || "";
 
-export interface IpropsCustomMap extends MarkerWithoutId {
-}
+export interface IpropsCustomMap extends MarkerWithoutId {}
 interface IstateCustomMap {
   settings: {
-    center: Coordinates,
-    zoom: number,
-  },
-  markers: Marker[],
+    center: Coordinates;
+    zoom: number;
+  };
+  markers: Marker[];
 }
 
 class CustomMap extends Component<IpropsCustomMap, IstateCustomMap> {
@@ -25,21 +24,20 @@ class CustomMap extends Component<IpropsCustomMap, IstateCustomMap> {
           lat: 52,
           lng: 20
         },
-        zoom: 6
+        zoom: 7
       },
-      markers: [{
-        id: 1,
-        lat: props.lat,
-        lng: props.lng,
-        text: props.text,
-      }]
+      markers: [
+        {
+          id: 1,
+          lat: props.lat,
+          lng: props.lng,
+          text: props.text
+        }
+      ]
     };
   }
 
-  addMapMarker = (
-    event: FormEvent<HTMLInputElement>,
-    params: Marker,
-  ): void => {
+  addMapMarker = (event: FormEvent<HTMLInputElement>, params: Marker): void => {
     const { markers } = this.state;
     event.preventDefault();
     // id from the cosmos :)
@@ -51,9 +49,9 @@ class CustomMap extends Component<IpropsCustomMap, IstateCustomMap> {
           id: id,
           lat: params.lat,
           lng: params.lng,
-          text: params.text,
-        },
-      ],
+          text: params.text
+        }
+      ]
     });
     console.log("markers", markers);
   };
@@ -96,14 +94,12 @@ class CustomMap extends Component<IpropsCustomMap, IstateCustomMap> {
 
     return (
       <div>
-        <CustomMapForm
-          addMarkerEventHandler={this.addMapMarker}
-        />
+        <CustomMapForm addMarkerEventHandler={this.addMapMarker} />
         <h2 className="container">Localizations</h2>
         <div style={mapInlineStyles}>
           <GoogleMapReact
             bootstrapURLKeys={{
-                key: GOOGLE_MAP_KEY,
+              key: GOOGLE_MAP_KEY
             }}
             defaultCenter={settings.center}
             defaultZoom={settings.zoom}
