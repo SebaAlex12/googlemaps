@@ -5,7 +5,11 @@ class App extends Component {
   render() {
     return (
       <div>
-        <CustomMap lat={52} lng={20} text="initial localization" />
+        <CustomMap
+          lat={52}
+          lng={20}
+          text="initial localization"
+        />
       </div>
     );
   }

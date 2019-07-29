@@ -1,15 +1,13 @@
 import React, { Component, CSSProperties } from "react";
+import { Marker } from './MapInterfaces';
 
-interface IpropsMapMarker {
-  id: number;
-  lat: number;
-  lng: number;
-  text: string;
+interface IpropsMapMarker extends Marker {
   onRemoveMarkerHandler(id: number): void;
 }
 
 class MapMarker extends Component<IpropsMapMarker> {
   render() {
+    const { onRemoveMarkerHandler, text, id } = this.props;
     const markerInlineStyles: CSSProperties = {
       backgroundColor: "red",
       padding: "10px",
@@ -26,11 +24,11 @@ class MapMarker extends Component<IpropsMapMarker> {
         <div
           style={deleteButtonStyles}
           className="btn"
-          onClick={() => this.props.onRemoveMarkerHandler(this.props.id)}
+          onClick={() => onRemoveMarkerHandler(id)}
         >
           X
         </div>
-        {this.props.text}
+        {text}
       </div>
     );
   }

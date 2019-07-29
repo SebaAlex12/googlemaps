@@ -1,15 +1,14 @@
 import React, { Component, FormEvent, CSSProperties } from "react";
+import { IpropsCustomMap } from './CustomMap';
+import { MarkerWithoutId } from './MapInterfaces';
 
-interface IstateCustomMapForm {
-  text: string;
-  lat: number;
-  lng: number;
+interface IstateCustomMapForm extends IpropsCustomMap {
 }
 
 interface IpropsCustomMapForm {
   addMarkerEventHandler(
     event: FormEvent,
-    { text, lat, lng }: { text: string; lat: number; lng: number }
+    marker: MarkerWithoutId,
   ): void;
 }
 
@@ -25,6 +24,7 @@ class CustomMapForm extends Component<
       lng: 20
     };
   }
+
   mapOnChangeHandler = (event: FormEvent<HTMLInputElement>): void => {
     event.preventDefault();
     // lat and lng loosing type number todo
@@ -38,6 +38,7 @@ class CustomMapForm extends Component<
   };
 
   render() {
+    const { text, lat, lng } = this.state;
     const inputStyles: CSSProperties = {
       marginLeft: "5px",
       marginRight: "5px",
@@ -53,7 +54,7 @@ class CustomMapForm extends Component<
             </label>
             <input
               style={inputStyles}
-              value={this.state.text}
+              value={text}
               onChange={this.mapOnChangeHandler}
               name="text"
               type="text"
@@ -64,7 +65,7 @@ class CustomMapForm extends Component<
             <label htmlFor="coord1">Latitude:</label>
             <input
               style={inputStyles}
-              value={this.state.lat}
+              value={lat}
               onChange={this.mapOnChangeHandler}
               name="lat"
               type="number"
@@ -75,7 +76,7 @@ class CustomMapForm extends Component<
             <label htmlFor="coord2">Longitude:</label>
             <input
               style={inputStyles}
-              value={this.state.lng}
+              value={lng}
               onChange={this.mapOnChangeHandler}
               name="lng"
               type="number"
@@ -89,9 +90,9 @@ class CustomMapForm extends Component<
               className="btn btn-primary float-right"
               onClick={event =>
                 this.props.addMarkerEventHandler(event, {
-                  text: this.state.text,
-                  lat: this.state.lat,
-                  lng: this.state.lng
+                  text,
+                  lat,
+                  lng,
                 })
               }
             />
